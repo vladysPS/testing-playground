@@ -1,5 +1,6 @@
 <!-- pango-collection-pagination.liquid -->
 {%  assign  collection = section.settings.collection_pagination %}
+<script src="{{ 'pagination.js' |  asset_url}}" defer></script>
 
 <section class="p-{{ section.id }}">
  <div class="page-width">
@@ -18,7 +19,7 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="pagination-buttons">
+        <pagination-component class="pagination-buttons">
             <div class="buttons-wrapper">
                 {% if paginate.pages > 1 %}
                     {% if paginate.previous %}
@@ -38,7 +39,7 @@
                     {% endif %}   
                 {% endif %}
             </div>
-        </div>
+        </pagination-component>
     {% endpaginate %}
  </div> 
 </section>
