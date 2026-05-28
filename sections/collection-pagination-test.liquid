@@ -1,0 +1,122 @@
+<!-- pango-collection-pagination.liquid -->
+{%  assign  collection = section.settings.collection_pagination %}
+
+<section class="p-{{ section.id }}">
+ <div class="page-width">
+{{ collection }}
+    {% paginate collection.products by 4 %}
+        <div class="card-wrapper">
+            {% for product in collection.products %}
+                <div class="product-card">
+                    <div class="image-container">
+                        {{ product.featured_image | image_url: width: 400 | image_tag }}
+                    </div>
+                    <div class="info-container">
+                        <h2>{{product.title}}</h2>
+                        <p>{{ product.price | money }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination-buttons">
+            <div class="buttons-wrapper">
+                {% if paginate.pages > 1 %}
+                    {% if paginate.previous %}
+                         <a href="{{ paginate.previous.url }}" class="pagination-next">Previous</a>
+                    {% endif %}
+                    {% for part in paginate.parts %}
+                    {% if part.is_link %}
+                        <a href="{{ part.url }}" class="pagination-button">{{part.title}}</a>
+                    {% elsif  part.title == paginate.current_page %}
+                        <span class="pagination-button pagination-current">{{part.title}}</span>
+                    {% else  %}
+                        <span class="pagination-gap">&hellip;</span>
+                    {% endif %}    
+                    {% endfor %}
+                    {%if paginate.next%}
+                        <a href="{{ paginate.next.url }}" class="pagination-next">Next</a>
+                    {% endif %}   
+                {% endif %}
+            </div>
+        </div>
+    {% endpaginate %}
+ </div> 
+</section>
+
+
+
+
+{%  # CSS  %}
+<style>
+.p-{{ section.id }}{
+.card-wrapper{
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1rem;
+    padding:1rem;
+    .product-card{        
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        padding: .3rem;
+        border-radius: .3rem;
+        h2{
+            font-size:20px;
+        }
+    }
+
+}
+.pagination-current{
+    background: rgba(143, 160, 154, 0.121);
+}
+.pagination-buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    .pagination-button{
+        display: inline-block;
+        padding: 5px;
+        width:20px;
+        border: 1px solid #ccc;
+        margin: 2px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+
+}
+
+
+@media(min-width:768px){
+ .p-{{ section.id }}{
+  
+ }
+}
+
+
+</style>
+
+
+{%  # JAVASCRIPT  %}
+<script>
+  
+</script>
+
+
+{% schema %}
+ {
+ "name": "Pango Pagination",
+ "settings": [
+    {
+        "type":"collection",
+        "id":"collection_pagination",
+        "label":"Collection"
+    }
+ ],
+ "presets": [
+   {
+     "name": "Pango Pagination",
+     "category": "All Pango"
+   }
+ ]
+} 
+{% endschema %}
+
