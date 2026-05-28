@@ -55,9 +55,17 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "collection_pagination_test_adEhn4": {
+      "type": "collection-pagination-test",
+      "name": "Pango Pagination",
+      "settings": {
+        "collection_pagination": "all"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "collection_pagination_test_adEhn4"
   ]
 }
