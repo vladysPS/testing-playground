@@ -1,8 +1,6 @@
 <!-- p-feroz-selector.liquid -->
-
-
 <section class="p-{{ section.id }}">
- <div class="p-wrapper-grid">
+ <explora-feroz-land class="p-wrapper-grid">
     <div class="main-image-container">
      {%- assign main_image = section.settings.main_image -%}
     {{ main_image | image_url: width: main_image.width | image_tag: class: 'add_your_class_here', loading: 'lazy' }}
@@ -12,7 +10,7 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla risus tortor, pellentesque a rutrum sit amet, rhoncus nec est. Nam malesuada egestas justo eget egestas. Maecenas libero neque, finibus et dolor at, eleifend faucibus dui. Aliquam sollicitudin neque eget mauris accumsan ullamcorper.
         </p>
     </div>
- </div> 
+ </explora-feroz-land> 
 </section>
 
 
