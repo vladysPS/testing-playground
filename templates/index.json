@@ -17,24 +17,6 @@
     },
     "17786656776433c6df": {
       "type": "_blocks",
-      "blocks": {
-        "recomma_product_quiz_builder_recommenda_inline_quiz_VbcX3a": {
-          "type": "shopify://apps/recomma-product-quiz-builder/blocks/recommenda_inline_quiz/66d3c4bd-027b-4c27-8ac0-2965d95b778a",
-          "settings": {
-            "quiz_id": 4895,
-            "width": 100,
-            "height": 85,
-            "padding_top": 0,
-            "padding_right": 0,
-            "padding_bottom": 0,
-            "padding_left": 0,
-            "open_delay": 0
-          }
-        }
-      },
-      "block_order": [
-        "recomma_product_quiz_builder_recommenda_inline_quiz_VbcX3a"
-      ],
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -62,10 +44,16 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "p_feroz_slector_6GQywK": {
+      "type": "p-feroz-slector",
+      "name": "Pango Feroz Selector",
+      "settings": {}
     }
   },
   "order": [
     "testing_basics_1_GpJ98w",
-    "17786656776433c6df"
+    "17786656776433c6df",
+    "p_feroz_slector_6GQywK"
   ]
 }
