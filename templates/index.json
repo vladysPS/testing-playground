@@ -48,7 +48,9 @@
     "p_feroz_slector_6GQywK": {
       "type": "p-feroz-slector",
       "name": "Pango Feroz Selector",
-      "settings": {}
+      "settings": {
+        "main_image": "shopify://shop_images/Screenshot_2026-06-03_at_18.06.49.png"
+      }
     }
   },
   "order": [
