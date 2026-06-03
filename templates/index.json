@@ -48,6 +48,16 @@
     "p_feroz_slector_6GQywK": {
       "type": "p-feroz-slector",
       "blocks": {
+        "bloque_refugio_jRLG38": {
+          "type": "bloque_refugio",
+          "settings": {
+            "nombre_refugio": "Refugio del consejo 2",
+            "descripcin_refugio": "<p>Descripción va aquí para Refugio del consejo 2</p>",
+            "imagen_de_refugio": "shopify://shop_images/lumieres-scented.png",
+            "coordinada_x": 10,
+            "coordinada_y": 10
+          }
+        },
         "bloque_refugio_f38FNX": {
           "type": "bloque_refugio",
           "settings": {
@@ -60,6 +70,7 @@
         }
       },
       "block_order": [
+        "bloque_refugio_jRLG38",
         "bloque_refugio_f38FNX"
       ],
       "name": "Pango Feroz Selector",
