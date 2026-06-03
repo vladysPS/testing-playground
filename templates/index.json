@@ -47,6 +47,21 @@
     },
     "p_feroz_slector_6GQywK": {
       "type": "p-feroz-slector",
+      "blocks": {
+        "bloque_refugio_f38FNX": {
+          "type": "bloque_refugio",
+          "settings": {
+            "nombre_refugio": "Refugio test 1",
+            "descripcin_refugio": "<p>Descripción va aquí para refugio test 1</p>",
+            "imagen_de_refugio": "shopify://shop_images/arcadia-scented.png",
+            "coordinada_x": 0,
+            "coordinada_y": 0
+          }
+        }
+      },
+      "block_order": [
+        "bloque_refugio_f38FNX"
+      ],
       "name": "Pango Feroz Selector",
       "settings": {
         "main_image": "shopify://shop_images/Screenshot_2026-06-03_at_18.06.49.png"
