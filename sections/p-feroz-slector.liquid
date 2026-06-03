@@ -1,0 +1,49 @@
+<!-- p-feroz-selector.liquid -->
+
+
+<section class="p-{{ section.id }}">
+ <div class="page-width">
+  aqui va nuestro selector feroz
+ </div> 
+</section>
+
+
+
+
+{%  # CSS  %}
+<style>
+.p-{{ section.id }}{
+
+
+}
+
+
+@media(min-width:768px){
+ .p-{{ section.id }}{
+  
+ }
+}
+
+
+</style>
+
+
+{%  # JAVASCRIPT  %}
+<script>
+  
+</script>
+
+
+{% schema %}
+ {
+ "name": "Pango Feroz Selector",
+ "settings": [],
+ "presets": [
+   {
+     "name": "Pango Feroz Selector",
+     "category": "All Pango"
+   }
+ ]
+} 
+{% endschema %}
+
