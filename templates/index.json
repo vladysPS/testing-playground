@@ -48,30 +48,41 @@
     "p_feroz_slector_6GQywK": {
       "type": "p-feroz-slector",
       "blocks": {
-        "bloque_refugio_jRLG38": {
-          "type": "bloque_refugio",
-          "settings": {
-            "nombre_refugio": "Refugio del consejo 2",
-            "descripcin_refugio": "<p>Descripción va aquí para Refugio del consejo 2</p>",
-            "imagen_de_refugio": "shopify://shop_images/lumieres-scented.png",
-            "coordinada_x": 10,
-            "coordinada_y": 10
-          }
-        },
         "bloque_refugio_f38FNX": {
           "type": "bloque_refugio",
           "settings": {
             "nombre_refugio": "Refugio test 1",
-            "descripcin_refugio": "<p>Descripción va aquí para refugio test 1</p>",
+            "descripcion_refugio": "<p>Descripción va aquí 1</p>",
             "imagen_de_refugio": "shopify://shop_images/arcadia-scented.png",
-            "coordinada_x": 0,
-            "coordinada_y": 0
+            "coordinada_x": 21,
+            "coordinada_y": 62
+          }
+        },
+        "bloque_refugio_jRLG38": {
+          "type": "bloque_refugio",
+          "settings": {
+            "nombre_refugio": "Refugio del consejo 2",
+            "descripcion_refugio": "<p>Descripción va aquí 2</p>",
+            "imagen_de_refugio": "shopify://shop_images/lumieres-scented.png",
+            "coordinada_x": 37,
+            "coordinada_y": 74
+          }
+        },
+        "bloque_refugio_LeaPj7": {
+          "type": "bloque_refugio",
+          "settings": {
+            "nombre_refugio": "Refugio del consejo 3",
+            "descripcion_refugio": "<p>Descripción va aquí 3</p>",
+            "imagen_de_refugio": "shopify://shop_images/air-scented.png",
+            "coordinada_x": 10,
+            "coordinada_y": 30
           }
         }
       },
       "block_order": [
+        "bloque_refugio_f38FNX",
         "bloque_refugio_jRLG38",
-        "bloque_refugio_f38FNX"
+        "bloque_refugio_LeaPj7"
       ],
       "name": "Pango Feroz Selector",
       "settings": {
