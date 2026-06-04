@@ -1,9 +1,11 @@
 <!-- p-feroz-selector.liquid -->
+<!-- la lógica de este componente esta en explora-test.js -->
+
 <section class="p-{{ section.id }}">
  <explora-feroz-land class="p-wrapper-grid">
     <div class="main-image-container">
      {%- assign main_image = section.settings.main_image -%}
-    {{ main_image | image_url: width: main_image.width | image_tag: class: 'add_your_class_here', loading: 'lazy' }}
+      {{ main_image | image_url: width: main_image.width | image_tag: class: 'add_your_class_here', loading: 'lazy' }}
       {% for block in section.blocks%}
         {% if block.type == 'bloque_refugio' %}
           <button class="p-image-selector {% if forloop.index == 1 %}selected{% endif %}" data-id-button="{{ forloop.index }}" style="top:{{ block.settings.coordinada_y }}%; left:{{block.settings.coordinada_x}}%;"></button>
@@ -24,78 +26,64 @@
  </explora-feroz-land> 
 </section>
 
-
-
-
 {%  # CSS  %}
 <style>
 .p-{{ section.id }}{
-.hidden{
-  display: none;
-}
-.p-image-selector{
-  width: 20px;
-  height:20px;
-  border-radius: 50%;
-  background: rgba(255, 0, 0, 0.463);
-  position: absolute;
-  @media(width > 500px){
-    width: 25px;
-    height:25px;
+  .hidden{
+    display: none;
   }
-  @media(width > 800px){
-    width: 30px;
-    height:30px;
+  .p-image-selector{
+    width: 20px;
+    height:20px;
+    border-radius: 50%;
+    background: rgba(255, 0, 0, 0.463);
+    position: absolute;
+    @media(width > 500px){
+      width: 25px;
+      height:25px;
+    }
+    @media(width > 800px){
+      width: 30px;
+      height:30px;
+    }
+
   }
-
+  .p-image-selector.selected{
+    background: red;
+  }
+  .p-wrapper-grid{
+      display: grid;
+      max-width:1200px;
+      margin-inline:auto;
+      gap: 1rem;
+      padding: 1rem;
+      @media (width > 768px){
+          grid-template-columns: 70% 1fr;
+      }
+  }
+  .main-image-container{
+      position:relative;
+      border:3px dotted blueviolet;
+      aspect-ratio: 71 / 51;
+      img{
+          width:100%;
+          height:100%;
+          object-fit:contain;
+          display:block;
+      }
+  }
+  .secondary-container{
+      min-height:300px;
+      border:3px dotted pink;
+  }
 }
-.p-image-selector.selected{
-  background: red;
-}
-.p-wrapper-grid{
-    display: grid;
-    max-width:1200px;
-    margin-inline:auto;
-    gap: 1rem;
-    padding: 1rem;
-    @media (width > 768px){
-        grid-template-columns: 70% 1fr;
-    }
-}
-.main-image-container{
-    position:relative;
-    border:3px dotted blueviolet;
-    aspect-ratio: 71 / 51;
-    img{
-        width:100%;
-        height:100%;
-        object-fit:contain;
-        display:block;
-    }
-}
-.secondary-container{
-    min-height:300px;
-    border:3px dotted pink;
-}
-
-}
-
-
 @media(min-width:768px){
  .p-{{ section.id }}{
   
  }
 }
 
-
 </style>
-
-
-{%  # JAVASCRIPT  %}
-<script>
-  
-</script>
-
 
 {% schema %}
  {
@@ -104,7 +92,7 @@
     {
       "type": "image_picker",
       "id": "main_image",
-      "label": "Imagen principal"
+      "label": "Imagen de mapa"
     }
  ],
  "presets": [
