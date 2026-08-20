@@ -37,6 +37,14 @@
                 <div class="swiper-button-next"></div>
             </div>
         </div>
+        <div class="index-navigation">
+            {%- for block in section.blocks -%}
+                {%- case block.type-%}
+                {%- when 'bloque_beneficios'-%}
+                    <span class="index-item" data-index="{{ forloop.index }}">{{ block.settings.texto_navegacion }}</span>
+                {%- endcase -%}
+            {%- endfor -%}
+        </div>
     </div>
 
  </div>
