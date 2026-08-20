@@ -112,6 +112,16 @@
             "imagen_beneficios": "shopify://shop_images/Mayor_estimulacion_esqueleto_1.webp"
           }
         },
+        "bloque_beneficios_wgndYN": {
+          "type": "bloque_beneficios",
+          "settings": {
+            "titulo": "Diseño para respetar tu pie",
+            "descripcion_beneficio": "<p>Al dar más libertad de movimiento, el pie trabaja más en cada paso y se activan los músculos intrínsecos, que ayudan a dar soporte, estabilidad y control del apoyo.</p>",
+            "texto_pill": "Estabilidad",
+            "texto_navegacion": "Index 3",
+            "imagen_beneficios": "shopify://shop_images/Adobe_Express_-_Activacion_del_pie_pie.webp"
+          }
+        },
         "bloque_beneficios_rcE6in": {
           "type": "bloque_beneficios",
           "settings": {
@@ -122,22 +132,23 @@
             "imagen_beneficios": "shopify://shop_images/Adobe_Express_-_Drop_cero_scaner_1.webp"
           }
         },
-        "bloque_beneficios_wgndYN": {
+        "bloque_beneficios_qLx6CC": {
           "type": "bloque_beneficios",
           "settings": {
-            "titulo": "Diseño para respetar tu pie",
-            "descripcion_beneficio": "<p>Al dar más libertad de movimiento, el pie trabaja más en cada paso y se activan los músculos intrínsecos, que ayudan a dar soporte, estabilidad y control del apoyo.</p>",
-            "texto_pill": "Estabilidad",
-            "texto_navegacion": "Index 3",
-            "imagen_beneficios": "shopify://shop_images/Adobe_Express_-_Activacion_del_pie_pie.webp"
+            "titulo": "Dedos con el espacio que necesitan",
+            "descripcion_beneficio": "<p>La puntera anatómica permite que los dedos se expandan y se muevan con libertad, respetando la forma natural del pie y favoreciendo su función biomecánica.</p>",
+            "texto_pill": "Puntera anatómica",
+            "texto_navegacion": "Dedos con el espacio que necesitan",
+            "imagen_beneficios": "shopify://shop_images/Frame_1_2.webp"
           }
         }
       },
       "block_order": [
         "bloque_beneficios_UJY49C",
         "bloque_beneficios_JbK4Qg",
+        "bloque_beneficios_wgndYN",
         "bloque_beneficios_rcE6in",
-        "bloque_beneficios_wgndYN"
+        "bloque_beneficios_qLx6CC"
       ],
       "name": "Pango Beneficios",
       "settings": {}
