@@ -75,40 +75,29 @@
                 justify-content: center;
                 align-items: center;
                 
-            }    
+            } 
+            .p-card{
+                width: 100%;
+                height: 100%;
+                .image-container{
+                    width:100%;
+                    min-height:200px;
+                    max-height: 687px;
+                    img{
+                        aspect-ratio: 1/1;
+                        width:100%;
+                        height:100%;
+                        max-height: 687px;
+                        object-fit:cover;
+                    }
+                }
+                .reference-info-container{
+                    display: none;
+                }
+            }   
 
         }
-        .p-card{
-            width: 100%;
-            height: 100%;
-            .image-container{
-                width:100%;
-                min-height:200px;
-                max-height: 687px;
-                img{
-                    aspect-ratio: 1/1;
-                    width:100%;
-                    height:100%;
-                    max-height: 687px;
-                    object-fit:cover;
-                }
-            }
-            .reference-info-container{
-                padding-block:20px;
-                display: grid;
-                display: none;
-                gap:10px;
-                h2,p{
-                    margin:0;
-                }
-                .p-pill{
-                    width: fit-content;
-                    padding: 10px 25px;
-                    border:1px solid black;
-                    border-radius: 25px;
-                }
-            }
-        }
+
         .p-info-container{
             padding-block:20px;
             display: flex;
@@ -195,9 +184,6 @@
             }
         }
     }
-
-
-
 }
 
 @media(min-width:768px){
@@ -297,6 +283,11 @@
     }
 
     let swiper = new Swiper('.swiper-{{ section.id }}', {
+        autoplay:{
+        delay: 4000,               
+        disableOnInteraction: false,  
+        pauseOnMouseEnter: false,
+        },
         slidesPerView: 1.2,
         spaceBetween:10,
         pagination: {
