@@ -3,29 +3,43 @@
 
 <section class="p-{{ section.id }}">
  <div class="p-section-wrapper">
-{%- for block in section.blocks -%}
-    {%- case block.type-%}
-    {%- when 'bloque_beneficios'-%}
-        <div class="p-card">
-            <div class="image-container">
-            {%- assign imagen_beneficios = block.settings.imagen_beneficios -%}
-            {{ imagen_beneficios | image_url: width: imagen_beneficios.width | image_tag: class: 'add_your_class_here', loading: 'lazy' }}
-            </div>
-            <div class="reference-info-container">
-                <h2>{{ block.settings.titulo }}</h2>
-                {{ block.settings.descripcion_beneficio }}
-                <span class="p-pill">{{ block.settings.texto_pill }} </span>
-            </div>
-            <div class="p-info-container">
-                <h2></h2>
-                <p></p>
-                <span class="p-pill"></span>
-            </div>
+    <div class="swiper swiper-{{ section.id }}">
+        <div class="swiper-wrapper">    
+            {%- for block in section.blocks -%}
+                {%- case block.type-%}
+                {%- when 'bloque_beneficios'-%}
+                    <div class="swiper-slide">
+                        <div class="p-card">
+                            <div class="image-container">
+                                {%- assign imagen_beneficios = block.settings.imagen_beneficios -%}
+                                {{ imagen_beneficios | image_url: width: imagen_beneficios.width | image_tag: class: 'add_your_class_here' }}
+                            </div>
+                            <div class="reference-info-container">
+                                <h2>{{ block.settings.titulo }}</h2>
+                                {{ block.settings.descripcion_beneficio }}
+                                <span class="p-pill">{{ block.settings.texto_pill }} </span>
+                            </div>
+                        </div>
+                    </div>  
+                {%- endcase -%}
+            {%- endfor -%}    
+        </div>
+        
+    </div>    
+    <div class="p-info-container">
+        <h2>Test heading</h2>
+        <p>Test description</p>
+        <span class="p-pill">Test pill</span>
+        <div class="pagination-container">
+            <div class="beneficios-swiper-pagination"></div>
+            <div class="arrow-container">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </div>
-    {%- endcase -%}
-{%- endfor -%}
+    </div>
 
+ </div>
 </section>
 
 
@@ -37,11 +51,38 @@
     padding-inline:10px;
     .p-section-wrapper{
         padding:20px;
-        background: #f5f5f5;;
+        background: #f5f5f5;
+        .swiper {
+            width: 100%;
+            height: 100%;
+            .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                background: #444;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+            }    
+
+        }
         .p-card{
+            border:1px solid red;
+            width: 100%;
+            height: 100%;
+            .image-container{
+                width:100%;
+                height:200px;
+                img{
+                    width:100%;
+                    height:100%;
+                    object-fit:cover;
+                }
+            }
             .reference-info-container{
                 padding-block:20px;
                 display: grid;
+                display: none;
                 gap:10px;
                 h2,p{
                     margin:0;
@@ -54,10 +95,70 @@
                 }
             }
         }
+        .p-info-container{
+            padding-block:20px;
+            display: grid;
+            gap:10px;
+            h2,p{
+                margin:0;
+            }
+            .p-pill{
+                width: fit-content;
+                padding: 10px 25px;
+                border:1px solid black;
+                border-radius: 25px;
+            }
+            .pagination-container{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .swiper-pagination-horizontal{
+                    display: flex;
+                }
+                .swiper-pagination-bullet{
+                    height: 1.5px;
+                    background: #1a1a1a;
+                    border-radius: 0;
+                    margin: 0;
+                    width: stretch;
+                }
+                .arrow-container{
+                    position: relative;
+                    padding-left:10px;
+                    display: flex;
+                    gap:16px;
+                    width: 72px;
+                                            
+                    .swiper-button-prev{
+                        padding:5px 4px 5px 2px;
+                    }
+                    .swiper-button-next{
+                        padding:5px 2px 5px 4px;
+                    }
+                    .swiper-button-prev,
+                    .swiper-button-next
+                    {
+                        position:relative;
+                        margin-top: 0;
+                        height:26px;
+                        width:26px;
+                        color: #1A1A1A;
+                        border:1px solid #1A1A1A;
+                        border-radius: 50%;
+                        svg{
+                            width: 10px;
+                            height: 10px;
+                        }
+                    }
+                }
+            }
+        }
     }
 
-}
 
+
+}
 
 @media(min-width:768px){
  .p-{{ section.id }}{
@@ -71,7 +172,55 @@
 
 {%  # JAVASCRIPT  %}
 <script>
-  
+    const $ = (sel, scope = document) => scope.querySelector(sel);
+
+    const beneficiosSection = $('.p-{{ section.id }}');
+
+    const infoContainer = $('.p-{{ section.id }} .p-info-container');
+    const infoHeading = $('h2', infoContainer);
+    const infoParagraph = $('p', infoContainer);
+    const infoPill = $('.p-pill', infoContainer);
+
+    function updateInfo(swiperInstance) {
+        const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
+        if (!activeSlide) return;
+
+        const referenceContainer = $('.reference-info-container', activeSlide);
+        if (!referenceContainer) return;
+
+        const referenceHeading = $('h2', referenceContainer);
+        const referenceParagraph = $('p', referenceContainer);
+        const referencePill = $('.p-pill', referenceContainer);
+
+        if (infoHeading && referenceHeading) {
+            infoHeading.textContent = referenceHeading.textContent;
+        }
+
+        if (infoParagraph && referenceParagraph) {
+            infoParagraph.innerHTML = referenceParagraph.innerHTML;
+        }
+
+        if (infoPill && referencePill) {
+            infoPill.textContent = referencePill.textContent.trim();
+        }
+    }
+
+    let swiper = new Swiper('.swiper-{{ section.id }}', {
+        slidesPerView: 1.2,
+        spaceBetween:10,
+        pagination: {
+            el: '.beneficios-swiper-pagination',
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        on:{
+            init:updateInfo,
+            slideChange:updateInfo
+        }
+    });
+
 </script>
 
 
