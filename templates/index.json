@@ -112,6 +112,16 @@
             "imagen_beneficios": "shopify://shop_images/Mayor_estimulacion_esqueleto_1.webp"
           }
         },
+        "bloque_beneficios_rcE6in": {
+          "type": "bloque_beneficios",
+          "settings": {
+            "titulo": "Mas control en cada paso",
+            "descripcion_beneficio": "<p>El drop cero evita una elevación constante del talón, favoreciendo una pisada más estable, un mejor control del equilibrio y una distribución de cargas más equilibrada.</p>",
+            "texto_pill": "",
+            "texto_navegacion": "index 4",
+            "imagen_beneficios": "shopify://shop_images/Adobe_Express_-_Drop_cero_scaner_1.webp"
+          }
+        },
         "bloque_beneficios_wgndYN": {
           "type": "bloque_beneficios",
           "settings": {
@@ -126,6 +136,7 @@
       "block_order": [
         "bloque_beneficios_UJY49C",
         "bloque_beneficios_JbK4Qg",
+        "bloque_beneficios_rcE6in",
         "bloque_beneficios_wgndYN"
       ],
       "name": "Pango Beneficios",
