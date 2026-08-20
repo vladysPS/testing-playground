@@ -123,6 +123,10 @@
                     margin: 0;
                     width: stretch;
                 }
+                .swiper-pagination-bullet.previous{
+                    background: #1a1a1a;
+                    opacity: 1;
+                }
                 .arrow-container{
                     position: relative;
                     padding-left:10px;
@@ -162,7 +166,20 @@
 
 @media(min-width:768px){
  .p-{{ section.id }}{
-  
+    .p-section-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .swiper {
+            order: 2; 
+        }
+        .p-info-container{
+            order: 1;
+            .p-pill,
+            .pagination-container{
+                display: none;
+            }
+        }
+    }
  }
 }
 
@@ -170,7 +187,6 @@
 </style>
 
 
-{%  # JAVASCRIPT  %}
 <script>
     const $ = (sel, scope = document) => scope.querySelector(sel);
 
@@ -182,6 +198,7 @@
     const infoPill = $('.p-pill', infoContainer);
 
     function updateInfo(swiperInstance) {
+        
         const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
         if (!activeSlide) return;
 
@@ -203,6 +220,19 @@
         if (infoPill && referencePill) {
             infoPill.textContent = referencePill.textContent.trim();
         }
+
+        updateBullets(swiperInstance);
+    }
+
+    function updateBullets(swiperInstance) {
+        const bullets = swiperInstance.pagination && swiperInstance.pagination.bullets;
+        if (!bullets || !bullets.length) return;
+
+        const currentIndex = swiperInstance.realIndex;
+
+        bullets.forEach((bullet, index) => {
+            bullet.classList.toggle('previous', index < currentIndex);
+        });
     }
 
     let swiper = new Swiper('.swiper-{{ section.id }}', {
