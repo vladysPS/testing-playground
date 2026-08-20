@@ -98,7 +98,7 @@
             "titulo": "Diseño para respetar tu pie",
             "descripcion_beneficio": "<p>El pie no solo flexiona hacia delante: también torsiona y se adapta al terreno. La estructura flexible del calzado permite ese movimiento tridimensional, respetando la mecánica natural del pie.</p>",
             "texto_pill": "Felxible",
-            "texto_navegacion": "",
+            "texto_navegacion": "Index 1",
             "imagen_beneficios": "shopify://shop_images/Movimiento_mas_natural_lateral2.webp"
           }
         },
@@ -108,7 +108,7 @@
             "titulo": "Diseño para respetar tu pie",
             "descripcion_beneficio": "<p>Una suela fina y flexible deja que el pie reciba más estímulos del suelo. Esa información permite al sistema nervioso ajustar el equilibrio y la coordinación en cada paso.</p>",
             "texto_pill": "Suela fina",
-            "texto_navegacion": "",
+            "texto_navegacion": "Index 2",
             "imagen_beneficios": "shopify://shop_images/Mayor_estimulacion_esqueleto_1.webp"
           }
         },
@@ -118,7 +118,7 @@
             "titulo": "Diseño para respetar tu pie",
             "descripcion_beneficio": "<p>Al dar más libertad de movimiento, el pie trabaja más en cada paso y se activan los músculos intrínsecos, que ayudan a dar soporte, estabilidad y control del apoyo.</p>",
             "texto_pill": "Estabilidad",
-            "texto_navegacion": "",
+            "texto_navegacion": "Index 3",
             "imagen_beneficios": "shopify://shop_images/Adobe_Express_-_Activacion_del_pie_pie.webp"
           }
         }
