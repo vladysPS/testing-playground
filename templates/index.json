@@ -88,11 +88,32 @@
       "settings": {
         "main_image": "shopify://shop_images/Screenshot_2026-06-03_at_18.06.49.png"
       }
+    },
+    "pango_beneficios_KK7Un3": {
+      "type": "pango-beneficios",
+      "blocks": {
+        "bloque_beneficios_wgndYN": {
+          "type": "bloque_beneficios",
+          "settings": {
+            "titulo": "Diseño para respetar tu estabilidad",
+            "descripcion_beneficio": "<p>Al dar más libertad de movimiento, el pie trabaja más en cada paso y se activan los músculos intrínsecos, que ayudan a dar soporte, estabilidad y control del apoyo.</p>",
+            "texto_pill": "Estabilidad",
+            "texto_navegacion": "",
+            "imagen_beneficios": "shopify://shop_images/Adobe_Express_-_Activacion_del_pie_pie.webp"
+          }
+        }
+      },
+      "block_order": [
+        "bloque_beneficios_wgndYN"
+      ],
+      "name": "Pango Beneficios",
+      "settings": {}
     }
   },
   "order": [
     "testing_basics_1_GpJ98w",
     "17786656776433c6df",
-    "p_feroz_slector_6GQywK"
+    "p_feroz_slector_6GQywK",
+    "pango_beneficios_KK7Un3"
   ]
 }
