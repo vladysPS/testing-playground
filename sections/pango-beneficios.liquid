@@ -2,57 +2,57 @@
 
 
 <section class="p-{{ section.id }}">
- <div class="p-section-wrapper">
     <h2>{{section.settings.titulo}}</h2>
-    <div class="swiper swiper-{{ section.id }}">
-        <div class="swiper-wrapper">    
-            {%- for block in section.blocks -%}
-                {%- case block.type-%}
-                {%- when 'bloque_beneficios'-%}
-                    <div class="swiper-slide" data-index="{{ forloop.index }}">
-                        <div class="p-card">
-                            <div class="image-container">
-                                {%- assign imagen_beneficios = block.settings.imagen_beneficios -%}
-                                {{ imagen_beneficios | image_url: width: imagen_beneficios.width | image_tag: class: 'add_your_class_here' }}
-                            </div>
-                            <div class="reference-info-container">
-                                <h3>{{ block.settings.texto_navegacion }}</h3>
-                                {{ block.settings.descripcion_beneficio }}
-                                <span class="p-pill">{{ block.settings.texto_pill }} </span>
-                            </div>
-                        </div>
-                    </div>  
-                {%- endcase -%}
-            {%- endfor -%}    
-        </div>
-        
-    </div>    
-    <div class="p-info-container">
-        <h2>Test heading</h2>
-        <p>Test description</p>
-        <span class="p-pill">Test pill</span>
-        <div class="pagination-container">
-            <div class="beneficios-swiper-pagination"></div>
-            <div class="arrow-container">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </div>
-        <div class="index-navigation">
-            <ul>
+    <div class="p-section-wrapper">
+        <div class="swiper swiper-{{ section.id }}">
+            <div class="swiper-wrapper">    
                 {%- for block in section.blocks -%}
                     {%- case block.type-%}
                     {%- when 'bloque_beneficios'-%}
-                        <li data-index="{{ forloop.index }}">
-                            <span class="index-item" >{{ block.settings.texto_navegacion }}</span>
-                        </li>
+                        <div class="swiper-slide" data-index="{{ forloop.index }}">
+                            <div class="p-card">
+                                <div class="image-container">
+                                    {%- assign imagen_beneficios = block.settings.imagen_beneficios -%}
+                                    {{ imagen_beneficios | image_url: width: imagen_beneficios.width | image_tag: class: 'add_your_class_here' }}
+                                </div>
+                                <div class="reference-info-container">
+                                    <h3>{{ block.settings.texto_navegacion }}</h3>
+                                    {{ block.settings.descripcion_beneficio }}
+                                    <span class="p-pill">{{ block.settings.texto_pill }}</span>
+                                </div>
+                            </div>
+                        </div>  
                     {%- endcase -%}
-                {%- endfor -%}
-            </ul>
+                {%- endfor -%}    
+            </div>
+            
+        </div>    
+        <div class="p-info-container">
+            <h2>{{section.settings.titulo}}</h2>
+            <h3>Test navegación</h3>
+            <p>Test description</p>
+            <span class="p-pill"></span>
+            <div class="pagination-container">
+                <div class="beneficios-swiper-pagination"></div>
+                <div class="arrow-container">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+            <div class="index-navigation">
+                <ul>
+                    {%- for block in section.blocks -%}
+                        {%- case block.type-%}
+                        {%- when 'bloque_beneficios'-%}
+                            <li data-index="{{ forloop.index }}">
+                                <span class="index-item" >{{ block.settings.texto_navegacion }}</span>
+                            </li>
+                        {%- endcase -%}
+                    {%- endfor -%}
+                </ul>
+            </div>
         </div>
     </div>
-
- </div>
 </section>
 
 
@@ -62,6 +62,13 @@
 <style>
 .p-{{ section.id }}{
     padding-inline:10px;
+    .p-pill:empty { 
+        display: none; 
+    }
+    h2{
+        font-size: 12px;
+        text-transform: uppercase;
+    }
     .p-section-wrapper{
         padding:20px;
         background: #f5f5f5;
@@ -107,6 +114,10 @@
             h2{
                 font-size:37px;
                 width: fit-content;
+                display: none;
+            }
+            h3{
+                margin: 0;
             }
             p{
                 max-width: 460px;
@@ -190,6 +201,9 @@
 @media(min-width:768px){
  .p-{{ section.id }}{
     padding-inline:0;
+    h2{
+        display: none;
+    }
     .p-section-wrapper{
         padding:0;
         display: grid;
@@ -200,6 +214,12 @@
         .p-info-container{
             padding:30px;
             order: 1;
+            h2{
+                display: block;
+            }
+            h3{
+                display: none;
+            }
             .pagination-container{
                 display: none;
             }
@@ -227,7 +247,7 @@
     const beneficiosSection = $('.p-{{ section.id }}');
 
     const infoContainer = $('.p-{{ section.id }} .p-info-container');
-    const infoHeading = $('h2', infoContainer);
+    const infoHeading = $('h3', infoContainer);
     const infoParagraph = $('p', infoContainer);
     const infoPill = $('.p-pill', infoContainer);
 
@@ -242,7 +262,7 @@
         const referenceContainer = $('.reference-info-container', activeSlide);
         if (!referenceContainer) return;
 
-        const referenceHeading = $('h2', referenceContainer);
+        const referenceHeading = $('h3', referenceContainer);
         const referenceParagraph = $('p', referenceContainer);
         const referencePill = $('.p-pill', referenceContainer);
 
