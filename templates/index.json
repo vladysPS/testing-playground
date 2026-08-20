@@ -92,6 +92,16 @@
     "pango_beneficios_KK7Un3": {
       "type": "pango-beneficios",
       "blocks": {
+        "bloque_beneficios_JbK4Qg": {
+          "type": "bloque_beneficios",
+          "settings": {
+            "titulo": "Diseño para respetar tu pie",
+            "descripcion_beneficio": "<p>Una suela fina y flexible deja que el pie reciba más estímulos del suelo. Esa información permite al sistema nervioso ajustar el equilibrio y la coordinación en cada paso.</p>",
+            "texto_pill": "Suela fina",
+            "texto_navegacion": "",
+            "imagen_beneficios": "shopify://shop_images/Mayor_estimulacion_esqueleto_1.webp"
+          }
+        },
         "bloque_beneficios_wgndYN": {
           "type": "bloque_beneficios",
           "settings": {
@@ -104,6 +114,7 @@
         }
       },
       "block_order": [
+        "bloque_beneficios_JbK4Qg",
         "bloque_beneficios_wgndYN"
       ],
       "name": "Pango Beneficios",
