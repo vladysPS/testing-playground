@@ -92,6 +92,16 @@
     "pango_beneficios_KK7Un3": {
       "type": "pango-beneficios",
       "blocks": {
+        "bloque_beneficios_UJY49C": {
+          "type": "bloque_beneficios",
+          "settings": {
+            "titulo": "Diseño para respetar tu pie",
+            "descripcion_beneficio": "<p>El pie no solo flexiona hacia delante: también torsiona y se adapta al terreno. La estructura flexible del calzado permite ese movimiento tridimensional, respetando la mecánica natural del pie.</p>",
+            "texto_pill": "Felxible",
+            "texto_navegacion": "",
+            "imagen_beneficios": "shopify://shop_images/Movimiento_mas_natural_lateral2.webp"
+          }
+        },
         "bloque_beneficios_JbK4Qg": {
           "type": "bloque_beneficios",
           "settings": {
@@ -105,7 +115,7 @@
         "bloque_beneficios_wgndYN": {
           "type": "bloque_beneficios",
           "settings": {
-            "titulo": "Diseño para respetar tu estabilidad",
+            "titulo": "Diseño para respetar tu pie",
             "descripcion_beneficio": "<p>Al dar más libertad de movimiento, el pie trabaja más en cada paso y se activan los músculos intrínsecos, que ayudan a dar soporte, estabilidad y control del apoyo.</p>",
             "texto_pill": "Estabilidad",
             "texto_navegacion": "",
@@ -114,6 +124,7 @@
         }
       },
       "block_order": [
+        "bloque_beneficios_UJY49C",
         "bloque_beneficios_JbK4Qg",
         "bloque_beneficios_wgndYN"
       ],
