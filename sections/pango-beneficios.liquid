@@ -8,7 +8,7 @@
             {%- for block in section.blocks -%}
                 {%- case block.type-%}
                 {%- when 'bloque_beneficios'-%}
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-index="{{ forloop.index }}">
                         <div class="p-card">
                             <div class="image-container">
                                 {%- assign imagen_beneficios = block.settings.imagen_beneficios -%}
@@ -38,12 +38,16 @@
             </div>
         </div>
         <div class="index-navigation">
-            {%- for block in section.blocks -%}
-                {%- case block.type-%}
-                {%- when 'bloque_beneficios'-%}
-                    <span class="index-item" data-index="{{ forloop.index }}">{{ block.settings.texto_navegacion }}</span>
-                {%- endcase -%}
-            {%- endfor -%}
+            <ul>
+                {%- for block in section.blocks -%}
+                    {%- case block.type-%}
+                    {%- when 'bloque_beneficios'-%}
+                        <li data-index="{{ forloop.index }}">
+                            <span class="index-item" >{{ block.settings.texto_navegacion }}</span>
+                        </li>
+                    {%- endcase -%}
+                {%- endfor -%}
+            </ul>
         </div>
     </div>
 
@@ -165,6 +169,15 @@
                     }
                 }
             }
+            .index-navigation{
+                display:none;
+                li{
+                    cursor: pointer;
+                }
+                li.active .index-item{
+                    font-weight: 600;
+                }
+            }
         }
     }
 
@@ -186,7 +199,11 @@
             .pagination-container{
                 display: none;
             }
+            .index-navigation{
+                display:block;
+            }
         }
+
     }
  }
 }
@@ -204,6 +221,9 @@
     const infoHeading = $('h2', infoContainer);
     const infoParagraph = $('p', infoContainer);
     const infoPill = $('.p-pill', infoContainer);
+
+    const indexList = $('.index-navigation ul', infoContainer);
+    const indexItems = indexList ? Array.from(indexList.querySelectorAll('li')) : [];
 
     function updateInfo(swiperInstance) {
         
@@ -230,6 +250,17 @@
         }
 
         updateBullets(swiperInstance);
+        updateNavigation(swiperInstance);
+    }
+
+    function updateNavigation(swiperInstance) {
+        if (!indexItems.length) return;
+
+        const currentIndex = swiperInstance.realIndex;
+
+        indexItems.forEach((item, index) => {
+            item.classList.toggle('active', index === currentIndex);
+        });
     }
 
     function updateBullets(swiperInstance) {
@@ -256,8 +287,24 @@
         on:{
             init:updateInfo,
             slideChange:updateInfo
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+            },
         }
+    
     });
+
+    if (indexList) {
+        indexList.addEventListener('click', (event) => {
+            const item = event.target.closest('li');
+            if (!item || !indexList.contains(item)) return;
+
+            swiper.slideTo(indexItems.indexOf(item));
+        });
+    }
 
 </script>
 
